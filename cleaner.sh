@@ -23,22 +23,18 @@
 ################################################################################
 
 
-
 ################################################################################
-# Copying files to repos for testing scripts.
+# Removing unwanted files
 ################################################################################
 
-echo "Sending files to repos..."
+echo "Removing files..."
 
-# Folder to copy from.
+FILE=assignment_02/my_functions_out.py
 A_FOLDER=A2_tests
-# Folder to copy to.
-REPO_A_FOLDER=assignment_02
-# File or folder to copy.
-# FILE=my_functions_test.py
-# FILE=my_functions_soln.py
-FILE=my_functions_soln_test.py
+# GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
+# Missing repos:
+# "BrandonAze-ECP3004S21"
 
 declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "MarkAcevedo-ECP3004S21"
@@ -85,27 +81,41 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "AnthonyYaghmourECP3004"
 "SongjieYin-ECP3004S21")
 
+# cd $GIT_FOLDER
 cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
-for REPO_FOLDER in ${REPO_NAMES[@]}
+echo "These repositories had the script:" > $A_FOLDER/remove_pass.txt
+echo "These repositories were missing the script:" > $A_FOLDER/remove_fail.txt
+
+for CHECK_FOLDER in ${REPO_NAMES[@]}
 do
-    # Send files to repos.
+    # Remove files in this repository.
     echo "##################################################"
     echo ""
-    echo "Sending files to "$REPO_FOLDER""
+    echo "Removing files in "$CHECK_FOLDER""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cp -r $A_FOLDER/$FILE $REPO_FOLDER/$REPO_A_FOLDER/$FILE
+    cd $CHECK_FOLDER
+
+    if [ -f "$FILE" ]; then
+        echo "$FILE exists in $CHECK_FOLDER."
+        rm $FILE
+        echo $CHECK_FOLDER >> ../$A_FOLDER/remove_pass.txt
+    else
+        echo "$FILE does not exist in $CHECK_FOLDER."
+        echo $CHECK_FOLDER >> ../$A_FOLDER/remove_fail.txt
+    fi
+
+    # cd $GIT_FOLDER
+    cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
     echo ""
     echo "#-------------------------------------------------"
     echo ""
-
 
 done
-
 
 
 ################################################################################

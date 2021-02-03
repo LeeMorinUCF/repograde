@@ -23,22 +23,25 @@
 ################################################################################
 
 
-
 ################################################################################
-# Copying files to repos for testing scripts.
+# Running scripts and storing results
 ################################################################################
 
-echo "Sending files to repos..."
+echo "Running files..."
 
-# Folder to copy from.
+# FILE_RUN=assignment_02/my_functions.py
+# FILE_OUT=assignment_02/my_functions_out.txt
+# FILE_RUN=assignment_02/my_functions_soln.py
+# FILE_OUT=assignment_02/my_functions_soln_out.txt
+# FILE_RUN=assignment_02/my_functions_soln_test.py
+# FILE_OUT=assignment_02/my_functions_soln_test_out.txt
+FILE_RUN=assignment_02/my_functions_test.py
+FILE_OUT=assignment_02/my_functions_test_out.txt
 A_FOLDER=A2_tests
-# Folder to copy to.
-REPO_A_FOLDER=assignment_02
-# File or folder to copy.
-# FILE=my_functions_test.py
-# FILE=my_functions_soln.py
-FILE=my_functions_soln_test.py
+# GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
+# Missing repos:
+# "BrandonAze-ECP3004S21"
 
 declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "MarkAcevedo-ECP3004S21"
@@ -85,27 +88,43 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "AnthonyYaghmourECP3004"
 "SongjieYin-ECP3004S21")
 
+# cd $GIT_FOLDER
 cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
-for REPO_FOLDER in ${REPO_NAMES[@]}
+echo "The scripts in these repositories ran successfully:" > $A_FOLDER/run_pass.txt
+echo "These repositories were missing the script:" > $A_FOLDER/run_fail.txt
+
+for RUN_FOLDER in ${REPO_NAMES[@]}
 do
-    # Send files to repos.
+    # Check for files in this repository.
     echo "##################################################"
     echo ""
-    echo "Sending files to "$REPO_FOLDER""
+    echo "Running files in "$RUN_FOLDER""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cp -r $A_FOLDER/$FILE $REPO_FOLDER/$REPO_A_FOLDER/$FILE
+    cd $RUN_FOLDER
+
+    if [ -f "$FILE_RUN" ]; then
+        echo "$FILE_RUN exists in $RUN_FOLDER."
+        echo $RUN_FOLDER >> ../$A_FOLDER/run_pass.txt
+        python $FILE_RUN > $FILE_OUT
+        echo "Output from $FILE_RUN in $RUN_FOLDER:"
+        cat $FILE_OUT
+    else
+        echo "$FILE_RUN does not exist in $RUN_FOLDER."
+        echo $RUN_FOLDER >> ../$A_FOLDER/run_fail.txt
+    fi
+
+    # cd $GIT_FOLDER
+    cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
     echo ""
     echo "#-------------------------------------------------"
     echo ""
-
 
 done
-
 
 
 ################################################################################
