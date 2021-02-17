@@ -29,15 +29,21 @@
 
 echo "Running files..."
 
-# FILE_RUN=assignment_02/my_functions.py
-# FILE_OUT=assignment_02/my_functions_out.txt
+# FILE_RUN=assignment_03/my_A3_functions.py
+# FILE_OUT=assignment_03/my_A3_functions_out.txt
+# FILE_RUN=assignment_03/my_A3_functions_doctest.py
+# FILE_OUT=assignment_03/my_A3_functions_doctest_out.txt
+FILE_RUN=assignment_03/my_A3_functions_examples.py
+FILE_OUT=assignment_03/my_A3_functions_examples_out.txt
 # FILE_RUN=assignment_02/my_functions_soln.py
 # FILE_OUT=assignment_02/my_functions_soln_out.txt
 # FILE_RUN=assignment_02/my_functions_soln_test.py
 # FILE_OUT=assignment_02/my_functions_soln_test_out.txt
-FILE_RUN=assignment_02/my_functions_test.py
-FILE_OUT=assignment_02/my_functions_test_out.txt
-A_FOLDER=A2_tests
+# FILE_RUN=assignment_02/my_functions_test.py
+# FILE_OUT=assignment_02/my_functions_test_out.txt
+# FILE_RUN=assignment_02/my_functions_test_2.py
+# FILE_OUT=assignment_02/my_functions_test_2_out.txt
+A_FOLDER=A3_tests
 # GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
 # Missing repos:
@@ -78,7 +84,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Pieros-python-solutions"
 "LP13-Firstrepository"
 "Daniel-Quezada-ECP3004S21"
-"RiECP"
+"RiECP3004"
 "RoseECP3004S21"
 "KimberlySBusinessAnalytics"
 "HSALMANECP3004"
@@ -87,6 +93,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "GadielECP3004S21"
 "AnthonyYaghmourECP3004"
 "SongjieYin-ECP3004S21")
+
 
 # cd $GIT_FOLDER
 cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"

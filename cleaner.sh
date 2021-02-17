@@ -29,8 +29,8 @@
 
 echo "Removing files..."
 
-FILE=assignment_02/my_functions_out.py
-A_FOLDER=A2_tests
+FILE=assignment_03/my_A3_functions_test.py
+A_FOLDER=A3_tests
 # GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
 # Missing repos:
@@ -71,7 +71,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Pieros-python-solutions"
 "LP13-Firstrepository"
 "Daniel-Quezada-ECP3004S21"
-"RiECP"
+"RiECP3004"
 "RoseECP3004S21"
 "KimberlySBusinessAnalytics"
 "HSALMANECP3004"

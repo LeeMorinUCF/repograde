@@ -31,13 +31,21 @@
 echo "Sending files to repos..."
 
 # Folder to copy from.
-A_FOLDER=A2_tests
+A_FOLDER=A3_tests
 # Folder to copy to.
-REPO_A_FOLDER=assignment_02
+REPO_A_FOLDER=assignment_03
 # File or folder to copy.
-# FILE=my_functions_test.py
+# FILE=my_A3_functions_test.py
+# FILE=my_A3_functions_doctest.py
+# FILE=my_A3_functions_examples.py
+# FILE=my_A3_functions_soln.py
+# FILE=my_A3_functions_soln_out.txt
+# FILE=my_A3_functions_soln_test.py
+FILE=my_A3_functions_soln_test_out.txt
+#
+# FILE=my_functions_test_2.py
 # FILE=my_functions_soln.py
-FILE=my_functions_soln_test.py
+# FILE=my_functions_soln_test.py
 
 
 declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
@@ -75,7 +83,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Pieros-python-solutions"
 "LP13-Firstrepository"
 "Daniel-Quezada-ECP3004S21"
-"RiECP"
+"RiECP3004"
 "RoseECP3004S21"
 "KimberlySBusinessAnalytics"
 "HSALMANECP3004"
