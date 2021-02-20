@@ -38,13 +38,13 @@ If you need to produce a lot of clones, this is where to go.
 This is what you need to pull large amounts of new products. 
 
 
-## The Sender
+## The Sender*
 
 <img src="Images/Michael_Madsen_Reservoir_Dogs.jpg" width="500"/>
 
 If you need to make some moves, this guy will get it done. 
 
-(Ok, that other movie sucked even though Michael Madsen was in it.
+(*Ok, that other movie sucked even though Michael Madsen was in it.
 That's why I show a scene from Reservoir Dogs instead.) 
 
 
@@ -59,7 +59,7 @@ This runs...computer programs.
 
 <img src="Images/Peter_Fonda_Easy_Rider.jpg" width="500"/>
 
-When the work is done, cruise away into the sunset. 
+When the work is done, push your changes and cruise away into the sunset. 
 
 
 
