@@ -38,14 +38,11 @@ If you need to produce a lot of clones, this is where to go.
 This is what you need to pull large amounts of new products. 
 
 
-## The Sender*
+## The Sender
 
-<img src="Images/Michael_Madsen_Reservoir_Dogs.jpg" width="500"/>
+<img src="Images/Robert_Lee_Ermey_Full_Metal_Jacket.jpg" width="500"/>
 
-If you need to make some moves, this guy will get it done. 
-
-(*Ok, that other movie sucked even though Michael Madsen was in it.
-That's why I show a scene from Reservoir Dogs instead.) 
+This guy will put you in your place. 
 
 
 ## The Runner
