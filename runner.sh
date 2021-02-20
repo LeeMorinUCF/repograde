@@ -31,10 +31,13 @@ echo "Running files..."
 
 # FILE_RUN=assignment_03/my_A3_functions.py
 # FILE_OUT=assignment_03/my_A3_functions_out.txt
+# FILE_OUT=assignment_03/my_A3_functions_adj_out.txt
 # FILE_RUN=assignment_03/my_A3_functions_doctest.py
 # FILE_OUT=assignment_03/my_A3_functions_doctest_out.txt
+# FILE_OUT=assignment_03/my_A3_functions_doctest_adj_out.txt
 FILE_RUN=assignment_03/my_A3_functions_examples.py
-FILE_OUT=assignment_03/my_A3_functions_examples_out.txt
+# FILE_OUT=assignment_03/my_A3_functions_examples_out.txt
+FILE_OUT=assignment_03/my_A3_functions_examples_adj_out.txt
 # FILE_RUN=assignment_02/my_functions_soln.py
 # FILE_OUT=assignment_02/my_functions_soln_out.txt
 # FILE_RUN=assignment_02/my_functions_soln_test.py
