@@ -29,9 +29,9 @@
 
 echo "Checking for files..."
 
-# FILE=assignment_02/my_functions.py
-FILE=assignment_03/my_A3_functions.py
-A_FOLDER=A3_tests
+# FILE=assignment_04/my_A4_functions.py
+FILE=assignment_04/my_A4_functions_doctest.txt
+A_FOLDER=A4_tests
 # GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
 # Missing repos:
@@ -85,8 +85,15 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 # cd $GIT_FOLDER
 cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
-echo "These repositories had the script:" > $A_FOLDER/check_pass.txt
-echo "These repositories were missing the script:" > $A_FOLDER/check_fail.txt
+echo "Checking for script $FILE ..." > $A_FOLDER/check_pass.txt
+echo "" >> $A_FOLDER/check_pass.txt
+echo "These repositories had the script:" >> $A_FOLDER/check_pass.txt
+echo "" >> $A_FOLDER/check_pass.txt
+
+echo "Checking for script $FILE ..." > $A_FOLDER/check_fail.txt
+echo "" >> $A_FOLDER/check_fail.txt
+echo "These repositories were missing the script:" >> $A_FOLDER/check_fail.txt
+echo "" >> $A_FOLDER/check_fail.txt
 
 for CHECK_FOLDER in ${REPO_NAMES[@]}
 do
