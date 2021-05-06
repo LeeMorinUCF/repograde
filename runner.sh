@@ -29,22 +29,27 @@
 
 echo "Running files..."
 
-A_FOLDER=A4_tests
+A_FOLDER=AA_M_tests
 
-FILE_RUN=assignment_04/my_A4_functions.py
-# FILE_OUT=assignment_04/my_A4_functions_out_LM.txt
-FILE_OUT=assignment_04/my_A4_functions_adj_out_LM.txt
+# A_RUN_FOLDER=assignment_05
+A_RUN_FOLDER=midterm_exam
+
+FILE_RUN=my_midterm_module.py
+FILE_OUT=my_midterm_module_out.txt
+# FILE_RUN=assignment_04/my_A4_functions.py
+# FILE_RUN=assignment_05/my_A5_module.py
+# FILE_OUT=assignment_05/my_A5_module_out.txt
+# FILE_OUT=assignment_04/my_A4_functions_adj_out_LM.txt
 # FILE_RUN=assignment_04/my_A4_functions_doctest.py
 # FILE_OUT=assignment_04/my_A4_doctest_out_LM.txt
 # FILE_OUT=assignment_04/my_A4_functions_doctest_adj_out.txt
-# FILE_RUN=assignment_04/my_A4_functions_examples.py
-# FILE_OUT=assignment_04/my_A4_functions_examples_out.txt
+# FILE_RUN=my_A5_module_examples.py
+# FILE_OUT=my_A5_module_examples_out.txt
+# FILE_OUT=my_A5_module_examples_adj_out.txt
 # FILE_OUT=assignment_04/my_A4_functions_examples_adj_out.txt
 
 # GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
-# Missing repos:
-# "BrandonAze-ECP3004S21"
 
 declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "MarkAcevedo-ECP3004S21"
@@ -53,7 +58,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "hazaa_alnasri_ECP3004"
 "Ethan-s-ECP3004S21-solutions"
 # "Chris-Assal-Assignment-Submission"
-# "Braze76/ECP3004S21"
+"BrandonAzevedo-ECP3004S21"
 # "danielbenavidesecp3004"
 "ECP3004-SP2021-Joseph-Bisa"
 "ECP3004-Solutions"
@@ -70,21 +75,21 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Zheming-Han--ECP3004S21"
 "Megan-Hoang-ECP3004S21"
 "Carters-ECP3004-Repository"
-# "Vehle-ECP3004S21"
+"Vehle-ECP3004S21"
 "Brandon-Juffe-ECP-3004S21-Solutions"
 "MayaKamathECP3004S21"
-# "My-ECP3004S21-solutions"
+"My-ECP3004S21-solutions"
 "Justin-Knutson-ECP3004S21"
 "AshleyKurtzweg-ECP3400"
 "Summer-ECP3004S21"
 "ZaidECP3004"
 "Pieros-python-solutions"
-# "LP13-Firstrepository"
+"LP13-Firstrepository"
 "Daniel-Quezada-ECP3004S21"
 "RiECP3004"
 "RoseECP3004S21"
 "KimberlySBusinessAnalytics"
-"HSALMANECP3004"
+# "HSALMANECP3004"
 "LisetteSoltura-ECP3004"
 "OGBrownJesus-s-Repository-"
 # "GadielECP3004S21"
@@ -110,9 +115,12 @@ do
 
     cd $RUN_FOLDER
 
-    if [ -f "$FILE_RUN" ]; then
-        echo "$FILE_RUN exists in $RUN_FOLDER."
+    if [ -f "$A_RUN_FOLDER/$FILE_RUN" ]; then
+        echo "$A_RUN_FOLDER/$FILE_RUN exists in $RUN_FOLDER."
         echo $RUN_FOLDER >> ../$A_FOLDER/run_pass.txt
+        # cd to that folder.
+        cd $A_RUN_FOLDER
+        # Run the file from within that folder.
         python $FILE_RUN > $FILE_OUT 2>&1
         echo "Output from $FILE_RUN in $RUN_FOLDER:"
         cat $FILE_OUT

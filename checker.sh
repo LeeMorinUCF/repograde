@@ -29,9 +29,19 @@
 
 echo "Checking for files..."
 
-# FILE=assignment_04/my_A4_functions.py
-FILE=assignment_04/my_A4_functions_doctest.txt
-A_FOLDER=A4_tests
+A_FOLDER=AA_F_tests
+# FILE=final_exam/my_final_module.py
+FILE=final_exam/my_final_Q3.py
+# A_FOLDER=A8_tests
+# FILE=assignment_08/my_A8_queries.py
+# FILE=assignment_07/logistic_calculation.py
+# FILE=assignment_07/my_A7_module.py
+# FILE=assignment_06/my_A6_module.py
+# FILE=midterm_exam/my_midterm_module.py
+# FILE=assignment_05/my_A5_module_out.py
+# FILE=assignment_05/my_A5_tests.py
+# FILE=assignment_05/my_A5_functions.py
+# FILE=assignment_05/my_A5_functions_doctest.txt
 # GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
 # Missing repos:
@@ -44,7 +54,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "hazaa_alnasri_ECP3004"
 "Ethan-s-ECP3004S21-solutions"
 "Chris-Assal-Assignment-Submission"
-"Braze76/ECP3004S21"
+"BrandonAzevedo-ECP3004S21"
 "danielbenavidesecp3004"
 "ECP3004-SP2021-Joseph-Bisa"
 "ECP3004-Solutions"

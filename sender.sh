@@ -31,13 +31,13 @@
 echo "Sending files to repos..."
 
 # Folder to copy from.
-A_FOLDER=A4_tests
+A_FOLDER=A5_tests
 # Folder to copy to.
-REPO_A_FOLDER=assignment_04
+REPO_A_FOLDER=assignment_05
 # File or folder to copy.
 # FILE=my_A3_functions_test.py
 # FILE=my_A4_functions_doctest.py
-FILE=my_A4_functions_examples.py
+FILE=my_A5_module_examples.py
 # FILE=my_A3_functions_soln.py
 # FILE=my_A3_functions_soln_out.txt
 # FILE=my_A3_functions_soln_test.py
@@ -56,6 +56,7 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Ethan-s-ECP3004S21-solutions"
 # "Chris-Assal-Assignment-Submission"
 # "Braze76/ECP3004S21"
+"BrandonAzevedo-ECP3004S21"
 # "danielbenavidesecp3004"
 "ECP3004-SP2021-Joseph-Bisa"
 "ECP3004-Solutions"
@@ -72,10 +73,10 @@ declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
 "Zheming-Han--ECP3004S21"
 "Megan-Hoang-ECP3004S21"
 "Carters-ECP3004-Repository"
-# "Vehle-ECP3004S21"
+"Vehle-ECP3004S21"
 "Brandon-Juffe-ECP-3004S21-Solutions"
 "MayaKamathECP3004S21"
-# "My-ECP3004S21-solutions"
+"My-ECP3004S21-solutions"
 "Justin-Knutson-ECP3004S21"
 "AshleyKurtzweg-ECP3400"
 "Summer-ECP3004S21"
