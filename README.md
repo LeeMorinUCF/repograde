@@ -2,7 +2,8 @@
 
 Tools for Grading Programs in GitHub Repositories
 
-This is a set of shell scripts to automate tasks for making changes 
+This is a set of shell scripts to automate tasks for 
+evaluating and making changes 
 to a large set of repositories. 
 The cast includes: 
 
@@ -29,6 +30,13 @@ If you want to know what's there, this guy will find it.
 
 If you need to produce a lot of clones, this is where to go.
 
+
+## The Copier
+
+<img src="Images/Dos_Equis_Ctrl_C_Ctrl_V.jpg" width="500"/>
+
+I don't always need to copy multiple files...
+but when I do I use this script. 
 
 
 ## The Puller
