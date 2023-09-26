@@ -2,8 +2,8 @@
 
 ################################################################################
 #
-# ECP3004: Python for Business Analytics
-# Shell Script for Grading Assignments
+# Repograde:
+# Shell Scripts for Grading Assignments
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
@@ -11,102 +11,67 @@
 # College of Business
 # University of Central Florida
 #
-# February 2, 2021
+# September 26, 2023
 #
 ################################################################################
 #
-# This shell script is part of a code base
+# This shell script is part of a code base that
 # clones repos, makes modifications,
 # runs scripts, uploads solutions, then pushes the changes.
 # It is used for grading assignments submitted to GitHub repositories.
 #
 ################################################################################
-
+# 
+# The Sender:
+# Copies files to repos for testing scripts
+# 
+################################################################################
 
 
 ################################################################################
-# Copying files to repos for testing scripts.
+# Set Parameters
 ################################################################################
 
-echo "Sending files to repos..."
 
 # Folder to copy from.
-A_FOLDER=A5_tests
-# Folder to copy to.
-REPO_A_FOLDER=assignment_05
-# File or folder to copy.
-# FILE=my_A3_functions_test.py
-# FILE=my_A4_functions_doctest.py
-FILE=my_A5_module_examples.py
-# FILE=my_A3_functions_soln.py
-# FILE=my_A3_functions_soln_out.txt
-# FILE=my_A3_functions_soln_test.py
-# FILE=my_A3_functions_soln_test_out.txt
-#
-# FILE=my_functions_test_2.py
-# FILE=my_functions_soln.py
-# FILE=my_functions_soln_test.py
+FROM_FOLDER=name_of_folder_to_copy_from
+
+# Folder to send the copy to.
+REPO_SEND_FOLDER=name_of_folder_to_copy_to
+
+# File or folder to send the copy to.
+SEND_FILE=name_of_file_to_send.ext
+
+# List of names of GitHub repos.
+declare -a REPO_NAMES=("name_of_repo_1"
+"name_of_repo_2"
+"name_of_repo_3"
+"name_of_repo_4")
 
 
-declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
-"MarkAcevedo-ECP3004S21"
-"Yasin-ECP3004S21"
-"Haza3ECP3004"
-"hazaa_alnasri_ECP3004"
-"Ethan-s-ECP3004S21-solutions"
-# "Chris-Assal-Assignment-Submission"
-# "Braze76/ECP3004S21"
-"BrandonAzevedo-ECP3004S21"
-# "danielbenavidesecp3004"
-"ECP3004-SP2021-Joseph-Bisa"
-"ECP3004-Solutions"
-"Ashley-Clerville--ecp-3004"
-"Corbin-ECP3004S21"
-"Deblock-ECP3004S21"
-"Sabrina-DoriscaECP3004S21"
-"Max-Dyell-ECP3004"
-"Sefieisa-ECP3004"
-"XiaoyuFu-ECP3004S21"
-# "ryanglossECP3004S21-solutions"
-"Luanna-ECP3004S21"
-"Alexander-Gomez---ECP3004S21"
-"Zheming-Han--ECP3004S21"
-"Megan-Hoang-ECP3004S21"
-"Carters-ECP3004-Repository"
-"Vehle-ECP3004S21"
-"Brandon-Juffe-ECP-3004S21-Solutions"
-"MayaKamathECP3004S21"
-"My-ECP3004S21-solutions"
-"Justin-Knutson-ECP3004S21"
-"AshleyKurtzweg-ECP3400"
-"Summer-ECP3004S21"
-"ZaidECP3004"
-"Pieros-python-solutions"
-# "LP13-Firstrepository"
-"Daniel-Quezada-ECP3004S21"
-"RiECP3004"
-"RoseECP3004S21"
-"KimberlySBusinessAnalytics"
-"HSALMANECP3004"
-"LisetteSoltura-ECP3004"
-"OGBrownJesus-s-Repository-"
-# "GadielECP3004S21"
-"AnthonyYaghmourECP3004"
-"SongjieYin-ECP3004S21")
+# Folder containing GitHub repositories.
+GIT_FOLDER="/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
-cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
 
-for REPO_FOLDER in ${REPO_NAMES[@]}
+################################################################################
+echo "Sending files to repos..."
+################################################################################
+
+
+cd "$GIT_FOLDER"
+
+
+for SEND_REPO_NAME in ${REPO_NAMES[@]}
 do
     # Send files to repos.
     echo "##################################################"
     echo ""
-    echo "Sending files to "$REPO_FOLDER""
+    echo "Sending files to "$SEND_REPO_NAME""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cp -r $A_FOLDER/$FILE $REPO_FOLDER/$REPO_A_FOLDER/$FILE
+    cp -r $FROM_FOLDER/$SEND_FILE $SEND_REPO_NAME/$REPO_SEND_FOLDER/$SEND_FILE
 
     echo ""
     echo "#-------------------------------------------------"

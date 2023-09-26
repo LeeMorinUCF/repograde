@@ -2,8 +2,8 @@
 
 ################################################################################
 #
-# ECP3004: Python for Business Analytics
-# Shell Script for Grading Assignments
+# Repograde:
+# Shell Scripts for Grading Assignments
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
@@ -11,30 +11,42 @@
 # College of Business
 # University of Central Florida
 #
-# February 2, 2021
+# September 26, 2023
 #
 ################################################################################
 #
-# This shell script is part of a code base
+# This shell script is part of a code base that
 # clones repos, makes modifications,
 # runs scripts, uploads solutions, then pushes the changes.
 # It is used for grading assignments submitted to GitHub repositories.
 #
 ################################################################################
+# 
+# The Cloner:
+# Clones a list of GitHUb repos
+# 
+################################################################################
 
 
 ################################################################################
-# Cloning repos
+# Set Parameters
 ################################################################################
 
-echo "Cloning git repos..."
-
-# Full class list from A2.
+# List of urls for GitHub repositories.
 declare -a REPO_URLS=("https://github.com/gituser1/reponame1.git"
-...
+"..."
 "https://github.com/gituser2/reponame2.git")
 
-cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+
+# Folder containing GitHub repositories.
+GIT_FOLDER="/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+
+
+################################################################################
+echo "Cloning git repos..."
+################################################################################
+
+cd "$GIT_FOLDER"
 
 
 for REPO in ${REPO_URLS[@]}
@@ -54,9 +66,6 @@ do
     echo ""
 
 done
-
-
-
 
 
 ################################################################################

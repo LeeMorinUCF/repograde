@@ -2,8 +2,8 @@
 
 ################################################################################
 #
-# ECP3004: Python for Business Analytics
-# Shell Script for Grading Assignments
+# Repograde:
+# Shell Scripts for Grading Assignments
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
@@ -11,106 +11,83 @@
 # College of Business
 # University of Central Florida
 #
-# February 2, 2021
+# September 26, 2023
 #
 ################################################################################
 #
-# This shell script is part of a code base
+# This shell script is part of a code base that
 # clones repos, makes modifications,
 # runs scripts, uploads solutions, then pushes the changes.
 # It is used for grading assignments submitted to GitHub repositories.
 #
 ################################################################################
+# 
+# The Cleaner:
+# Removes unwanted files
+# 
+################################################################################
 
 
 ################################################################################
-# Removing unwanted files
+# Set Parameters
 ################################################################################
 
+# Name of file to remove.
+FILE=folder_in_repo/file_to_remove.ext
+
+
+# Folder for output of this script.
+OUT_FOLDER=name_of_folder_for_output
+
+# Files for output of results.
+CLEAN_PASS_FILE=name_of_clean_pass_file.txt
+CLEAN_FAIL_FILE=name_of_clean_fail_file.txt
+
+
+# List of names of GitHub repos.
+declare -a REPO_NAMES=("name_of_repo_1"
+"name_of_repo_2"
+"name_of_repo_3"
+"name_of_repo_4")
+
+# Folder containing GitHub repositories.
+GIT_FOLDER="/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+
+
+################################################################################
 echo "Removing files..."
+################################################################################
 
-FILE=assignment_03/my_A3_functions_test.py
-A_FOLDER=A3_tests
-# GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
 
-# Missing repos:
-# "BrandonAze-ECP3004S21"
+cd "$GIT_FOLDER"
 
-declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
-"MarkAcevedo-ECP3004S21"
-"Yasin-ECP3004S21"
-"Haza3ECP3004"
-"hazaa_alnasri_ECP3004"
-"Ethan-s-ECP3004S21-solutions"
-"Chris-Assal-Assignment-Submission"
-"Braze76/ECP3004S21"
-"danielbenavidesecp3004"
-"ECP3004-SP2021-Joseph-Bisa"
-"ECP3004-Solutions"
-"Ashley-Clerville--ecp-3004"
-"Corbin-ECP3004S21"
-"Deblock-ECP3004S21"
-"Sabrina-DoriscaECP3004S21"
-"Max-Dyell-ECP3004"
-"Sefieisa-ECP3004"
-"XiaoyuFu-ECP3004S21"
-"ryanglossECP3004S21-solutions"
-"Luanna-ECP3004S21"
-"Alexander-Gomez---ECP3004S21"
-"Zheming-Han--ECP3004S21"
-"Megan-Hoang-ECP3004S21"
-"Carters-ECP3004-Repository"
-"Vehle-ECP3004S21"
-"Brandon-Juffe-ECP-3004S21-Solutions"
-"MayaKamathECP3004S21"
-"My-ECP3004S21-solutions"
-"Justin-Knutson-ECP3004S21"
-"AshleyKurtzweg-ECP3400"
-"Summer-ECP3004S21"
-"ZaidECP3004"
-"Pieros-python-solutions"
-"LP13-Firstrepository"
-"Daniel-Quezada-ECP3004S21"
-"RiECP3004"
-"RoseECP3004S21"
-"KimberlySBusinessAnalytics"
-"HSALMANECP3004"
-"LisetteSoltura-ECP3004"
-"OGBrownJesus-s-Repository-"
-"GadielECP3004S21"
-"AnthonyYaghmourECP3004"
-"SongjieYin-ECP3004S21")
 
-# cd $GIT_FOLDER
-cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+echo "These repositories had the script:" > $OUT_FOLDER/$CLEAN_PASS_FILE
+echo "These repositories were missing the script:" > $OUT_FOLDER/$CLEAN_FAIL_FILE
 
-echo "These repositories had the script:" > $A_FOLDER/remove_pass.txt
-echo "These repositories were missing the script:" > $A_FOLDER/remove_fail.txt
-
-for CHECK_FOLDER in ${REPO_NAMES[@]}
+for CLEAN_REPO_NAME in ${REPO_NAMES[@]}
 do
     # Remove files in this repository.
     echo "##################################################"
     echo ""
-    echo "Removing files in "$CHECK_FOLDER""
+    echo "Removing files in "$CLEAN_REPO_NAME""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cd $CHECK_FOLDER
+    cd $CLEAN_REPO_NAME
 
     if [ -f "$FILE" ]; then
-        echo "$FILE exists in $CHECK_FOLDER."
+        echo "$FILE exists in $CLEAN_REPO_NAME."
         rm $FILE
-        echo $CHECK_FOLDER >> ../$A_FOLDER/remove_pass.txt
+        echo $CLEAN_REPO_NAME >> ../$OUT_FOLDER/$CLEAN_PASS_FILE
     else
-        echo "$FILE does not exist in $CHECK_FOLDER."
-        echo $CHECK_FOLDER >> ../$A_FOLDER/remove_fail.txt
+        echo "$FILE does not exist in $CLEAN_REPO_NAME."
+        echo $CLEAN_REPO_NAME >> ../$OUT_FOLDER/$CLEAN_FAIL_FILE
     fi
 
-    # cd $GIT_FOLDER
-    cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
-
+    cd "$GIT_FOLDER"
+    
     echo ""
     echo "#-------------------------------------------------"
     echo ""

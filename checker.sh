@@ -2,8 +2,8 @@
 
 ################################################################################
 #
-# ECP3004: Python for Business Analytics
-# Shell Script for Grading Assignments
+# Repograde:
+# Shell Scripts for Grading Assignments
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
@@ -11,123 +11,86 @@
 # College of Business
 # University of Central Florida
 #
-# February 2, 2021
+# September 26, 2023
 #
 ################################################################################
 #
-# This shell script is part of a code base
+# This shell script is part of a code base that
 # clones repos, makes modifications,
 # runs scripts, uploads solutions, then pushes the changes.
 # It is used for grading assignments submitted to GitHub repositories.
 #
 ################################################################################
+# 
+# The Checker:
+# Checks for existence of files
+# 
+################################################################################
 
 
 ################################################################################
-# Checking for existence of files
+# Set Parameters
 ################################################################################
 
+# Name of file to check for.
+FILE=folder_in_repo/file_to_look_for.ext
+
+# Folder for output of this script.
+OUT_FOLDER=name_of_folder_for_output
+
+# Files for output of results.
+CHECK_PASS_FILE=name_of_check_pass_file.txt
+CHECK_FAIL_FILE=name_of_check_fail_file.txt
+
+# List of names of GitHub repos.
+declare -a REPO_NAMES=("name_of_repo_1"
+"name_of_repo_2"
+"name_of_repo_3"
+"name_of_repo_4")
+
+
+# Folder containing GitHub repositories.
+GIT_FOLDER="/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+
+
+################################################################################
 echo "Checking for files..."
+################################################################################
 
-A_FOLDER=AA_F_tests
-# FILE=final_exam/my_final_module.py
-FILE=final_exam/my_final_Q3.py
-# A_FOLDER=A8_tests
-# FILE=assignment_08/my_A8_queries.py
-# FILE=assignment_07/logistic_calculation.py
-# FILE=assignment_07/my_A7_module.py
-# FILE=assignment_06/my_A6_module.py
-# FILE=midterm_exam/my_midterm_module.py
-# FILE=assignment_05/my_A5_module_out.py
-# FILE=assignment_05/my_A5_tests.py
-# FILE=assignment_05/my_A5_functions.py
-# FILE=assignment_05/my_A5_functions_doctest.txt
-# GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
+cd "$GIT_FOLDER"
 
-# Missing repos:
-# "BrandonAze-ECP3004S21"
+echo "Checking for script $FILE ..." > $OUT_FOLDER/$CHECK_PASS_FILE
+echo "" >> $OUT_FOLDER/$CHECK_PASS_FILE
+echo "These repositories had the script:" >> $OUT_FOLDER/$CHECK_PASS_FILE
+echo "" >> $OUT_FOLDER/$CHECK_PASS_FILE
 
-declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
-"MarkAcevedo-ECP3004S21"
-"Yasin-ECP3004S21"
-"Haza3ECP3004"
-"hazaa_alnasri_ECP3004"
-"Ethan-s-ECP3004S21-solutions"
-"Chris-Assal-Assignment-Submission"
-"BrandonAzevedo-ECP3004S21"
-"danielbenavidesecp3004"
-"ECP3004-SP2021-Joseph-Bisa"
-"ECP3004-Solutions"
-"Ashley-Clerville--ecp-3004"
-"Corbin-ECP3004S21"
-"Deblock-ECP3004S21"
-"Sabrina-DoriscaECP3004S21"
-"Max-Dyell-ECP3004"
-"Sefieisa-ECP3004"
-"XiaoyuFu-ECP3004S21"
-"ryanglossECP3004S21-solutions"
-"Luanna-ECP3004S21"
-"Alexander-Gomez---ECP3004S21"
-"Zheming-Han--ECP3004S21"
-"Megan-Hoang-ECP3004S21"
-"Carters-ECP3004-Repository"
-"Vehle-ECP3004S21"
-"Brandon-Juffe-ECP-3004S21-Solutions"
-"MayaKamathECP3004S21"
-"My-ECP3004S21-solutions"
-"Justin-Knutson-ECP3004S21"
-"AshleyKurtzweg-ECP3400"
-"Summer-ECP3004S21"
-"ZaidECP3004"
-"Pieros-python-solutions"
-"LP13-Firstrepository"
-"Daniel-Quezada-ECP3004S21"
-"RiECP3004"
-"RoseECP3004S21"
-"KimberlySBusinessAnalytics"
-"HSALMANECP3004"
-"LisetteSoltura-ECP3004"
-"OGBrownJesus-s-Repository-"
-"GadielECP3004S21"
-"AnthonyYaghmourECP3004"
-"SongjieYin-ECP3004S21")
+echo "Checking for script $FILE ..." > $OUT_FOLDER/$CHECK_FAIL_FILE
+echo "" >> $OUT_FOLDER/$CHECK_FAIL_FILE
+echo "These repositories were missing the script:" >> $OUT_FOLDER/$CHECK_FAIL_FILE
+echo "" >> $OUT_FOLDER/$CHECK_FAIL_FILE
 
-# cd $GIT_FOLDER
-cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
-
-echo "Checking for script $FILE ..." > $A_FOLDER/check_pass.txt
-echo "" >> $A_FOLDER/check_pass.txt
-echo "These repositories had the script:" >> $A_FOLDER/check_pass.txt
-echo "" >> $A_FOLDER/check_pass.txt
-
-echo "Checking for script $FILE ..." > $A_FOLDER/check_fail.txt
-echo "" >> $A_FOLDER/check_fail.txt
-echo "These repositories were missing the script:" >> $A_FOLDER/check_fail.txt
-echo "" >> $A_FOLDER/check_fail.txt
-
-for CHECK_FOLDER in ${REPO_NAMES[@]}
+for CHECK_REPO_NAME in ${REPO_NAMES[@]}
 do
     # Check for files in this repository.
     echo "##################################################"
     echo ""
-    echo "Checking files in "$CHECK_FOLDER""
+    echo "Checking files in "$CHECK_REPO_NAME""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cd $CHECK_FOLDER
+    cd $CHECK_REPO_NAME
 
     if [ -f "$FILE" ]; then
-        echo "$FILE exists in $CHECK_FOLDER."
-        echo $CHECK_FOLDER >> ../$A_FOLDER/check_pass.txt
+        echo "$FILE exists in $CHECK_REPO_NAME."
+        echo $CHECK_REPO_NAME >> ../$OUT_FOLDER/$CHECK_PASS_FILE
     else
-        echo "$FILE does not exist in $CHECK_FOLDER."
-        echo $CHECK_FOLDER >> ../$A_FOLDER/check_fail.txt
+        echo "$FILE does not exist in $CHECK_REPO_NAME."
+        echo $CHECK_REPO_NAME >> ../$OUT_FOLDER/$CHECK_FAIL_FILE
     fi
 
-    # cd $GIT_FOLDER
-    cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
-
+    cd "$GIT_FOLDER"
+    
     echo ""
     echo "#-------------------------------------------------"
     echo ""

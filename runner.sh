@@ -2,8 +2,8 @@
 
 ################################################################################
 #
-# ECP3004: Python for Business Analytics
-# Shell Script for Grading Assignments
+# Repograde:
+# Shell Scripts for Grading Assignments
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
@@ -11,126 +11,93 @@
 # College of Business
 # University of Central Florida
 #
-# February 2, 2021
+# September 26, 2023
 #
 ################################################################################
 #
-# This shell script is part of a code base
+# This shell script is part of a code base that
 # clones repos, makes modifications,
 # runs scripts, uploads solutions, then pushes the changes.
 # It is used for grading assignments submitted to GitHub repositories.
 #
 ################################################################################
+# 
+# The Runner:
+# Runs scripts and stores the results
+# 
+################################################################################
 
 
 ################################################################################
-# Running scripts and storing results
+# Set Parameters
 ################################################################################
 
+RUN_FOLDER_NAME=name_of_folder_with_file_to_run
+
+# Name of file with program to be run.
+FILE_RUN=name_of_file_to_run.ext
+
+# Name of file for output from program to be run.
+FILE_RUN_OUT=name_of_file_to_run.out
+
+
+# Folder for output of this script.
+OUT_FOLDER=name_of_folder_for_output
+
+# Files for output of results.
+RUN_PASS_FILE=name_of_run_pass_file.txt
+RUN_FAIL_FILE=name_of_run_fail_file.txt
+
+
+# List of names of GitHub repos.
+declare -a REPO_NAMES=("name_of_repo_1"
+"name_of_repo_2"
+"name_of_repo_3"
+"name_of_repo_4")
+
+
+# Folder containing GitHub repositories.
+GIT_FOLDER="/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+
+
+################################################################################
 echo "Running files..."
+################################################################################
 
-A_FOLDER=AA_M_tests
-
-# A_RUN_FOLDER=assignment_05
-A_RUN_FOLDER=midterm_exam
-
-FILE_RUN=my_midterm_module.py
-FILE_OUT=my_midterm_module_out.txt
-# FILE_RUN=assignment_04/my_A4_functions.py
-# FILE_RUN=assignment_05/my_A5_module.py
-# FILE_OUT=assignment_05/my_A5_module_out.txt
-# FILE_OUT=assignment_04/my_A4_functions_adj_out_LM.txt
-# FILE_RUN=assignment_04/my_A4_functions_doctest.py
-# FILE_OUT=assignment_04/my_A4_doctest_out_LM.txt
-# FILE_OUT=assignment_04/my_A4_functions_doctest_adj_out.txt
-# FILE_RUN=my_A5_module_examples.py
-# FILE_OUT=my_A5_module_examples_out.txt
-# FILE_OUT=my_A5_module_examples_adj_out.txt
-# FILE_OUT=assignment_04/my_A4_functions_examples_adj_out.txt
-
-# GIT_FOLDER="/c/Users/le279259/OneDrive\ -\ University\ of\ Central\ Florida/Documents/GitHub"
+cd "$GIT_FOLDER"
 
 
-declare -a REPO_NAMES=("SawmonAbossedgh-ECP3004S21"
-"MarkAcevedo-ECP3004S21"
-"Yasin-ECP3004S21"
-"Haza3ECP3004"
-"hazaa_alnasri_ECP3004"
-"Ethan-s-ECP3004S21-solutions"
-# "Chris-Assal-Assignment-Submission"
-"BrandonAzevedo-ECP3004S21"
-# "danielbenavidesecp3004"
-"ECP3004-SP2021-Joseph-Bisa"
-"ECP3004-Solutions"
-"Ashley-Clerville--ecp-3004"
-"Corbin-ECP3004S21"
-"Deblock-ECP3004S21"
-"Sabrina-DoriscaECP3004S21"
-"Max-Dyell-ECP3004"
-"Sefieisa-ECP3004"
-"XiaoyuFu-ECP3004S21"
-# "ryanglossECP3004S21-solutions"
-"Luanna-ECP3004S21"
-"Alexander-Gomez---ECP3004S21"
-"Zheming-Han--ECP3004S21"
-"Megan-Hoang-ECP3004S21"
-"Carters-ECP3004-Repository"
-"Vehle-ECP3004S21"
-"Brandon-Juffe-ECP-3004S21-Solutions"
-"MayaKamathECP3004S21"
-"My-ECP3004S21-solutions"
-"Justin-Knutson-ECP3004S21"
-"AshleyKurtzweg-ECP3400"
-"Summer-ECP3004S21"
-"ZaidECP3004"
-"Pieros-python-solutions"
-"LP13-Firstrepository"
-"Daniel-Quezada-ECP3004S21"
-"RiECP3004"
-"RoseECP3004S21"
-"KimberlySBusinessAnalytics"
-# "HSALMANECP3004"
-"LisetteSoltura-ECP3004"
-"OGBrownJesus-s-Repository-"
-# "GadielECP3004S21"
-"AnthonyYaghmourECP3004"
-"SongjieYin-ECP3004S21")
+echo "The scripts in these repositories ran successfully:" > $OUT_FOLDER/$RUN_PASS_FILE
+echo "These repositories were missing the script:" > $OUT_FOLDER/$RUN_FAIL_FILE
 
-
-# cd $GIT_FOLDER
-cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
-
-echo "The scripts in these repositories ran successfully:" > $A_FOLDER/run_pass.txt
-echo "These repositories were missing the script:" > $A_FOLDER/run_fail.txt
-
-for RUN_FOLDER in ${REPO_NAMES[@]}
+for RUN_REPO_NAME in ${REPO_NAMES[@]}
 do
     # Check for files in this repository.
     echo "##################################################"
     echo ""
-    echo "Running files in "$RUN_FOLDER""
+    echo "Running files in "$RUN_REPO_NAME""
     echo ""
     echo "#-------------------------------------------------"
     echo ""
 
-    cd $RUN_FOLDER
+    cd $RUN_REPO_NAME
 
-    if [ -f "$A_RUN_FOLDER/$FILE_RUN" ]; then
-        echo "$A_RUN_FOLDER/$FILE_RUN exists in $RUN_FOLDER."
-        echo $RUN_FOLDER >> ../$A_FOLDER/run_pass.txt
+    if [ -f "$RUN_FOLDER_NAME/$FILE_RUN" ]; then
+        echo "$RUN_FOLDER_NAME/$FILE_RUN exists in $RUN_REPO_NAME."
+        echo $RUN_REPO_NAME >> ../$OUT_FOLDER/$RUN_PASS_FILE
         # cd to that folder.
-        cd $A_RUN_FOLDER
+        cd $RUN_FOLDER_NAME
         # Run the file from within that folder.
-        python $FILE_RUN > $FILE_OUT 2>&1
-        echo "Output from $FILE_RUN in $RUN_FOLDER:"
-        cat $FILE_OUT
+        python $FILE_RUN > $FILE_RUN_OUT 2>&1
+        echo "Output from $FILE_RUN in $RUN_REPO_NAME:"
+        cat $FILE_RUN_OUT
     else
-        echo "$FILE_RUN does not exist in $RUN_FOLDER."
-        echo $RUN_FOLDER >> ../$A_FOLDER/run_fail.txt
+        echo "$FILE_RUN does not exist in $RUN_REPO_NAME."
+        echo $RUN_REPO_NAME >> ../$OUT_FOLDER/$RUN_FAIL_FILE
     fi
 
-    # cd $GIT_FOLDER
-    cd "/c/Users/le279259/OneDrive - University of Central Florida/Documents/GitHub"
+    cd "$GIT_FOLDER"
+    
 
     echo ""
     echo "#-------------------------------------------------"
