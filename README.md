@@ -14,6 +14,7 @@ The cast includes:
 <img src="Images/Winston_Wolf_Pulp_Fiction.jpg" width="500"/>
 
 If you need to solve a problem, he's the guy to call. 
+He solves problems. 
 
 
 
@@ -50,7 +51,7 @@ This is what you need to pull large amounts of new products.
 
 <img src="Images/Robert_Lee_Ermey_Full_Metal_Jacket.jpg" width="500"/>
 
-This guy will put you in your place. 
+This guy will put your files in their place. 
 
 
 ## The Runner
