@@ -33,7 +33,7 @@
 ################################################################################
 
 # Name of file to check for.
-FILE=folder_in_repo/file_to_look_for.ext
+CHECK_FILE=folder_in_repo/file_to_look_for.ext
 
 # Folder for output of this script.
 OUT_FOLDER=name_of_folder_for_output
@@ -59,12 +59,12 @@ echo "Checking for files..."
 
 cd "$GIT_FOLDER"
 
-echo "Checking for script $FILE ..." > $OUT_FOLDER/$CHECK_PASS_FILE
+echo "Checking for script $CHECK_FILE ..." > $OUT_FOLDER/$CHECK_PASS_FILE
 echo "" >> $OUT_FOLDER/$CHECK_PASS_FILE
 echo "These repositories had the script:" >> $OUT_FOLDER/$CHECK_PASS_FILE
 echo "" >> $OUT_FOLDER/$CHECK_PASS_FILE
 
-echo "Checking for script $FILE ..." > $OUT_FOLDER/$CHECK_FAIL_FILE
+echo "Checking for script $CHECK_FILE ..." > $OUT_FOLDER/$CHECK_FAIL_FILE
 echo "" >> $OUT_FOLDER/$CHECK_FAIL_FILE
 echo "These repositories were missing the script:" >> $OUT_FOLDER/$CHECK_FAIL_FILE
 echo "" >> $OUT_FOLDER/$CHECK_FAIL_FILE
@@ -81,11 +81,11 @@ do
 
     cd $CHECK_REPO_NAME
 
-    if [ -f "$FILE" ]; then
-        echo "$FILE exists in $CHECK_REPO_NAME."
+    if [ -f "$CHECK_FILE" ]; then
+        echo "$CHECK_FILE exists in $CHECK_REPO_NAME."
         echo $CHECK_REPO_NAME >> ../$OUT_FOLDER/$CHECK_PASS_FILE
     else
-        echo "$FILE does not exist in $CHECK_REPO_NAME."
+        echo "$CHECK_FILE does not exist in $CHECK_REPO_NAME."
         echo $CHECK_REPO_NAME >> ../$OUT_FOLDER/$CHECK_FAIL_FILE
     fi
 

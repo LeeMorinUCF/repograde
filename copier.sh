@@ -43,8 +43,8 @@ FILE_OUT=Folder_name_in_repo/file_name_of_new_copy.ext
 OUT_FOLDER=name_of_folder_for_output
 
 # Files for output of results.
-COPY_PASS_FILE=name_of_copy_pass_file.txt
-COPY_FAIL_FILE=name_of_copy_fail_file.txt
+COPY_PASS_FILE=copy_pass_file_Q1.txt
+COPY_FAIL_FILE=copy_fail_file_Q1.txt
 
 
 # List of names of GitHub repos.
@@ -81,11 +81,11 @@ for COPY_REPO_NAME in ${REPO_NAMES[@]}
     
     if [ -f "$FILE_IN" ]; then
         echo "$FILE_IN exists in $COPY_REPO_NAME."
-        echo $COPY_REPO_NAME >> ../$OUT_FOLDER/$COPY_PASS_FILE
+        echo $COPY_REPO_NAME >> "$GIT_FOLDER"/$OUT_FOLDER/$COPY_PASS_FILE
         cp $FILE_IN $FILE_OUT
     else
         echo "$FILE_IN does not exist in $COPY_REPO_NAME."
-        echo $COPY_REPO_NAME >> ../$OUT_FOLDER/$COPY_FAIL_FILE
+        echo $COPY_REPO_NAME >> "$GIT_FOLDER"/$OUT_FOLDER/$COPY_FAIL_FILE
     fi
     
     cd "$GIT_FOLDER"

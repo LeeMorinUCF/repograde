@@ -36,7 +36,7 @@ If you need to produce a lot of clones, this is where to go.
 
 <img src="Images/Dos_Equis_Ctrl_C_Ctrl_V.jpg" width="500"/>
 
-I don't always need to copy multiple files...
+I don't always need to copy files to several git repos...
 but when I do I use this script. 
 
 

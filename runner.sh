@@ -84,7 +84,7 @@ do
 
     if [ -f "$RUN_FOLDER_NAME/$FILE_RUN" ]; then
         echo "$RUN_FOLDER_NAME/$FILE_RUN exists in $RUN_REPO_NAME."
-        echo $RUN_REPO_NAME >> ../$OUT_FOLDER/$RUN_PASS_FILE
+        echo $RUN_REPO_NAME >> "$GIT_FOLDER"/$OUT_FOLDER/$RUN_PASS_FILE
         # cd to that folder.
         cd $RUN_FOLDER_NAME
         # Run the file from within that folder.
@@ -93,7 +93,7 @@ do
         cat $FILE_RUN_OUT
     else
         echo "$FILE_RUN does not exist in $RUN_REPO_NAME."
-        echo $RUN_REPO_NAME >> ../$OUT_FOLDER/$RUN_FAIL_FILE
+        echo $RUN_REPO_NAME >> "$GIT_FOLDER"/$OUT_FOLDER/$RUN_FAIL_FILE
     fi
 
     cd "$GIT_FOLDER"
